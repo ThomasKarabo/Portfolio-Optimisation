@@ -1,47 +1,44 @@
-# Portfolio Optimization Project - Johannesburg Stock Exchange (JSE)
+# Portfolio Optimization + PCA Analysis - JSE Equities
 
-A comprehensive **Modern Portfolio Theory (MPT)** implementation analyzing 16 major JSE-listed stocks. This project simulates thousands of random portfolios to construct the **Efficient Frontier** and identifies the **Maximum Sharpe Ratio** portfolio for optimal risk-adjusted returns.
+**Modern Portfolio Theory (MPT) + Principal Component Analysis** on 16 major Johannesburg Stock Exchange stocks (2020–2024).
 
 ## 🎯 Project Overview
 
-This project applies Harry Markowitz’s Portfolio Theory to real market data (2020–2024) to:
-- Calculate annualized returns and covariance matrix
-- Simulate 10,000+ random portfolios
-- Visualize the **Efficient Frontier**
-- Identify the portfolio with the **highest Sharpe Ratio**
-- Determine the **Minimum Volatility** portfolio
+This project combines classical **Portfolio Optimization** with **PCA** to:
+- Build and visualize the **Efficient Frontier** using Monte Carlo simulation
+- Identify the **Maximum Sharpe Ratio** and **Minimum Volatility** portfolios
+- Use **PCA** to uncover the underlying risk factors driving the portfolio
 
 ## 📊 Key Features
 
-- **Data Source**: Real-time historical prices via `yfinance`
-- **Stocks Analyzed**: 16 major JSE companies across Banking, Mining, Retail, Telecom, and Consumer sectors:
-  - Banking: SBK, FSR, ABG, NED
-  - Mining: AGL, IMP, SOL
-  - Retail/Consumer: SHP, PIK, WHL, BVT, REM
-  - Telecom: MTN, VOD
-  - Others: NPN, PRX
+### 1. Portfolio Optimization
+- Downloaded historical price data via `yfinance`
+- Computed annualized returns and covariance matrix
+- Simulated 10,000+ random portfolios
+- Identified optimal allocations (e.g. strong weights in SHP.JO, PRX.JO, NPN.JO)
 
-- **Metrics Calculated**:
-  - Annualized Returns & Volatility
-  - Portfolio Risk (using full covariance matrix)
-  - Sharpe Ratio (Risk-adjusted performance)
+### 2. Principal Component Analysis (PCA)
+- Applied PCA on daily returns to identify **latent risk factors**
+- Analyzed **explained variance** to determine how many components capture most market risk
+- Examined **component loadings** to understand which stocks drive each factor (e.g. Banking factor, Mining factor, Market factor)
+- Visualized cumulative explained variance and top feature contributions
 
-- **Optimization Techniques**:
-  - Monte Carlo Simulation (10,000+ portfolios)
-  - Identification of Max Sharpe & Global Minimum Variance portfolios
+## 🔍 PCA Insights
 
-## 📈 Results Highlights
-
-- **Maximum Sharpe Ratio Portfolio** achieved strong risk-adjusted returns with significant allocations to high-performing stocks like **SHP.JO (21.6%)**, **PRX.JO (15.6%)**, and **NPN.JO (15.6%)**.
-- Clear visualization of the **Efficient Frontier** showing the trade-off between risk and return.
-- Diversified allocation across sectors, reducing unsystematic risk.
+- The first 3–5 principal components typically explain **70–85%** of total variance in the JSE dataset.
+- Clear sector clustering visible in loadings (Banking stocks load together, Mining stocks on another component, etc.).
+- Demonstrates the effectiveness of dimensionality reduction while retaining most portfolio risk information.
 
 ## 🛠️ Technologies Used
 
-- Python
-- pandas, NumPy
-- yfinance
-- Matplotlib / Seaborn (for visualization)
-- Jupyter Notebook
+- Python, pandas, NumPy, yfinance
+- scikit-learn (`PCA`)
+- Matplotlib / Seaborn
 
-## 📁 Project Structure
+## 📌 Key Learnings & Skills Demonstrated
+
+- Modern Portfolio Theory & Efficient Frontier construction
+- Risk management using full covariance matrix
+- **Dimensionality reduction** and latent factor discovery with PCA
+- Interpretation of financial data through statistical methods
+- Python proficiency for quantitative finance
